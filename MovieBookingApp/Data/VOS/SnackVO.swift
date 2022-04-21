@@ -14,6 +14,17 @@ struct SnakResponse: Codable {
     let data: [SnackVO]?
 }
 
+class CardVO{
+    var cardType: String
+    var name:String
+    
+    init(cardType:String, name:String){
+        self.cardType = cardType
+        self.name = name
+    }
+}
+
+
 // MARK: - SnackVO
 struct SnackVO: Codable {
     let id: Int?

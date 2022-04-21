@@ -21,7 +21,6 @@
 		842CA80B280DF78900C2DF7C /* PaymentVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CA80A280DF78900C2DF7C /* PaymentVO.swift */; };
 		842CA80D280DF7D300C2DF7C /* PaymentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CA80C280DF7D300C2DF7C /* PaymentObject.swift */; };
 		842CA80F280DFCF700C2DF7C /* ComboRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842CA80E280DFCF700C2DF7C /* ComboRepository.swift */; };
-		843E721927FCD52B0090B652 /* CardVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E721827FCD52B0090B652 /* CardVo.swift */; };
 		846AE66627FF4B210017CD6A /* CheckOutObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AE66527FF4B210017CD6A /* CheckOutObject.swift */; };
 		846AE66827FF4E8A0017CD6A /* CheckOutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AE66727FF4E8A0017CD6A /* CheckOutModel.swift */; };
 		846AE66A27FF4F880017CD6A /* CheckOutRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AE66927FF4F880017CD6A /* CheckOutRepository.swift */; };
@@ -87,7 +86,6 @@
 		84F6B86E27FE05710074E822 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6B86C27FE05710074E822 /* GenreCollectionViewCell.swift */; };
 		84F6B86F27FE05710074E822 /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F6B86D27FE05710074E822 /* GenreCollectionViewCell.xib */; };
 		84F97F9E27BEB56100E84896 /* MovieSeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F97F9D27BEB56100E84896 /* MovieSeatViewController.swift */; };
-		84F97FA227BEC9E500E84896 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F97FA127BEC9E500E84896 /* DummyData.swift */; };
 		84F97FA427BECBAD00E84896 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F97FA327BECBAD00E84896 /* AppConstants.swift */; };
 		84F97FA727BECEA700E84896 /* MovieSeatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F97FA527BECEA700E84896 /* MovieSeatCollectionViewCell.swift */; };
 		84F97FA827BECEA700E84896 /* MovieSeatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F97FA627BECEA700E84896 /* MovieSeatCollectionViewCell.xib */; };
@@ -110,7 +108,6 @@
 		842CA80A280DF78900C2DF7C /* PaymentVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVO.swift; sourceTree = "<group>"; };
 		842CA80C280DF7D300C2DF7C /* PaymentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentObject.swift; sourceTree = "<group>"; };
 		842CA80E280DFCF700C2DF7C /* ComboRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboRepository.swift; sourceTree = "<group>"; };
-		843E721827FCD52B0090B652 /* CardVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVo.swift; sourceTree = "<group>"; };
 		846AE66527FF4B210017CD6A /* CheckOutObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutObject.swift; sourceTree = "<group>"; };
 		846AE66727FF4E8A0017CD6A /* CheckOutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutModel.swift; sourceTree = "<group>"; };
 		846AE66927FF4F880017CD6A /* CheckOutRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutRepository.swift; sourceTree = "<group>"; };
@@ -178,7 +175,6 @@
 		84F6B86C27FE05710074E822 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		84F6B86D27FE05710074E822 /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
 		84F97F9D27BEB56100E84896 /* MovieSeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSeatViewController.swift; sourceTree = "<group>"; };
-		84F97FA127BEC9E500E84896 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		84F97FA327BECBAD00E84896 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		84F97FA527BECEA700E84896 /* MovieSeatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSeatCollectionViewCell.swift; sourceTree = "<group>"; };
 		84F97FA627BECEA700E84896 /* MovieSeatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieSeatCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -362,15 +358,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		849CE43227BD791500DA5113 /* dummy */ = {
-			isa = PBXGroup;
-			children = (
-				84F97FA127BEC9E500E84896 /* DummyData.swift */,
-				843E721827FCD52B0090B652 /* CardVo.swift */,
-			);
-			path = dummy;
-			sourceTree = "<group>";
-		};
 		849CE43327BD791F00DA5113 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,7 +466,6 @@
 				847D316927FC9B4400822402 /* Networking */,
 				84A1F79F27C3FC740044E636 /* Components */,
 				84A1F79C27C3F6A10044E636 /* Delegates */,
-				849CE43227BD791500DA5113 /* dummy */,
 				849CE43327BD791F00DA5113 /* Utils */,
 				847D317C27FCCD2D00822402 /* Data */,
 				849CE43127BD78F900DA5113 /* Controllers */,
@@ -641,9 +627,7 @@
 				84A1F7A127C3FCA30044E636 /* RatingControl.swift in Sources */,
 				84C0FE5F27C2C52D00A73E21 /* LoginViewController.swift in Sources */,
 				847D317527FCA89A00822402 /* BaseModel.swift in Sources */,
-				84F97FA227BEC9E500E84896 /* DummyData.swift in Sources */,
 				849DBBDC280E652100167506 /* ComboModel.swift in Sources */,
-				843E721927FCD52B0090B652 /* CardVo.swift in Sources */,
 				84AFDAC727C8A32600C27E6C /* TicketViewController.swift in Sources */,
 				842CA803280D363600C2DF7C /* SeatingObject.swift in Sources */,
 				847D316827FC968800822402 /* UDM.swift in Sources */,
