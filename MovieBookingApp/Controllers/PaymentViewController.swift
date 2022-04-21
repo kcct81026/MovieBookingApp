@@ -131,7 +131,7 @@ class PaymentViewController: UIViewController {
                 case .success(let data):
                     self.stopLoading()
                     if data.code == 200 {
-                        self.checkOutTicket(bNo: data.data?.bookingNo ?? "", qrcode: data.data?.qrCode ?? "")
+                        self.navigateToTicketVeiwController()
                     }
                     else{
                         self.showInfo(message: data.message ?? "unknown error!")
@@ -149,29 +149,7 @@ class PaymentViewController: UIViewController {
         
     }
     
-    private func checkOutTicket(bNo: String, qrcode: String){
-        let checkout = CheckOut(
-            cinemaDayTimeSlotId: checkOut?.cinemaDayTimeSlotId,
-            row: checkOut?.row,
-            seatNumber: checkOut?.seatNumber,
-            bookingDate: checkOut?.bookingDate,
-            totalPrice: checkOut?.totalPrice,
-            movieId: checkOut?.movieId,
-            cardId: currentCard?.id,
-            cinemaId: checkOut?.cinemaId,
-            snacks: checkOut?.snacks,
-            cinemaTimeSlot: checkOut?.cinemaTimeSlot,
-            movieName: checkOut?.movieName,
-            cinemaName: checkOut?.cinemaName,
-            moviePoseter: checkOut?.moviePoseter,
-            bookingNo: bNo,
-            qrcode: qrcode
-        
-        )
-            
-        checkOutModel.saveCheckOut(checkout: checkout)
-        navigateToTicketVeiwController()
-    }
+
    
     
     @objc func onTapBack(){

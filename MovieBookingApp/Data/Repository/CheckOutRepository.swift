@@ -13,6 +13,7 @@ protocol CheckOutRepository{
     func saveCheckOut(checkout: CheckOut, success: @escaping () -> Void, fail: @escaping (String) -> Void)
     func saveCinemaList(data: [CinemaVO])
     func saveSeating(data: [SeatingVO])
+    func savingCheckOutTicket(data: CheckOutResponse)
     func saveCinemaTimeSlotList(data: [CinemaTimeSlot], day: String)
     func getCinemaTimeSlotListByDay(day: String, completion: @escaping ([CinemaTimeSlot]) -> Void)
     func getCinemaList( completion: @escaping ([CinemaVO]) -> Void)
@@ -21,7 +22,6 @@ protocol CheckOutRepository{
 }
 
 class CheckOutRepositoryImpl: BaseRepository, CheckOutRepository{
-    
     
     static let shared : CheckOutRepository = CheckOutRepositoryImpl()
     
@@ -180,6 +180,22 @@ class CheckOutRepositoryImpl: BaseRepository, CheckOutRepository{
         }
 
 
+    }
+    
+    func savingCheckOutTicket(data: CheckOutResponse) {
+        guard let checkOutObject  = realmDB.object(ofType: CheckOutObject.self, forPrimaryKey: data.data?.movieID) else{
+            return
+        }
+        
+        do{
+            try realmDB.write {
+                checkOutObject.bookingNo = data.data?.bookingNo
+                checkOutObject.qrcode = data.data?.qrCode
+                realmDB.add(checkOutObject, update: .modified)
+            }
+        }catch{
+            debugPrint(error.localizedDescription)
+        }
     }
     
     func saveCinemaList(data: [CinemaVO]) {

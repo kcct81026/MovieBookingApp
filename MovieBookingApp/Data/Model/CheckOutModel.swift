@@ -45,6 +45,9 @@ class CheckOutModelImpl: BaseModel, CheckOutModel {
         networkAgent.checkOut(checkOut: checkout){ (result) in
             switch result {
             case .success(let data) :
+                if data.code == 200 {
+                    self.checkOutRepository.savingCheckOutTicket(data: data)
+                }
                 completion(.success(data))
                 //self.checkOutRepository.saveSeating(data: data)
             case .failure(let error):
