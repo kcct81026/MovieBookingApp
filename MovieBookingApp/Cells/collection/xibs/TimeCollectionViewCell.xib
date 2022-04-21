@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TimeCollectionViewCell" customModule="MovieBookingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="136" height="83"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="136" height="83"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acY-Bm-u6C">
+                        <rect key="frame" x="4" y="4" width="128" height="75"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:30 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOF-XN-hof">
+                                <rect key="frame" x="31.5" y="27.5" width="65.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vOF-XN-hof" firstAttribute="centerX" secondItem="acY-Bm-u6C" secondAttribute="centerX" id="byj-rT-hrY"/>
+                            <constraint firstItem="vOF-XN-hof" firstAttribute="centerY" secondItem="acY-Bm-u6C" secondAttribute="centerY" id="dyv-Qy-aqk"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="acY-Bm-u6C" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="MZo-kK-ESC"/>
+                <constraint firstAttribute="trailing" secondItem="acY-Bm-u6C" secondAttribute="trailing" constant="4" id="NEj-w3-BlL"/>
+                <constraint firstAttribute="bottom" secondItem="acY-Bm-u6C" secondAttribute="bottom" constant="4" id="Qph-Dd-eXq"/>
+                <constraint firstItem="acY-Bm-u6C" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="nlK-ne-Lub"/>
+            </constraints>
+            <size key="customSize" width="136" height="83"/>
+            <connections>
+                <outlet property="lbl" destination="vOF-XN-hof" id="xH0-gd-xwn"/>
+                <outlet property="viewContainerTime" destination="acY-Bm-u6C" id="f6p-Fy-fPG"/>
+            </connections>
+            <point key="canvasLocation" x="200.00000000000003" y="125.55803571428571"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

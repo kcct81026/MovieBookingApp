@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="119" id="KGk-i7-Jjw" customClass="ComboSetTableViewCell" customModule="MovieBookingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="446" height="137"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="446" height="137"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Combo set M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hp-Fd-KMA">
+                        <rect key="frame" x="0.0" y="8" width="325" height="25.5"/>
+                        <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSN-SI-Wkq">
+                        <rect key="frame" x="333" y="8" width="105" height="25.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zwt-ZV-wvU">
+                        <rect key="frame" x="0.0" y="41.5" width="446" height="95.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Combo size M 22oz Code(X1) and medium popcorn (X1)" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfJ-S1-PfH">
+                                <rect key="frame" x="0.0" y="25.5" width="317" height="45"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="16"/>
+                                <color key="textColor" name="movie_seat_taken_color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GUj-fq-4Tb">
+                                <rect key="frame" x="325" y="28" width="121" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oky-Pf-M6q">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="uoG-uN-zmg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" name="movie_seat_taken_color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C16-Du-Orx">
+                                        <rect key="frame" x="40" y="0.0" width="0.5" height="40"/>
+                                        <color key="backgroundColor" name="movie_seat_taken_color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="0.5" id="ha5-gc-rTQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CGB-a8-hR2">
+                                        <rect key="frame" x="40.5" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="3OI-gG-503"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" name="movie_seat_taken_color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1o-OY-XhS">
+                                        <rect key="frame" x="80.5" y="0.0" width="0.5" height="40"/>
+                                        <color key="backgroundColor" name="movie_seat_taken_color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="0.5" id="7N3-2O-1vi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfO-P2-IOR">
+                                        <rect key="frame" x="81" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Iac-PD-jnr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" name="movie_seat_taken_color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7XU-yA-e1a"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GUj-fq-4Tb" firstAttribute="centerY" secondItem="NfJ-S1-PfH" secondAttribute="centerY" id="POi-rh-TM2"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dSN-SI-Wkq" firstAttribute="centerY" secondItem="6hp-Fd-KMA" secondAttribute="centerY" id="2x9-GX-Uab"/>
+                    <constraint firstItem="GUj-fq-4Tb" firstAttribute="centerX" secondItem="dSN-SI-Wkq" secondAttribute="centerX" id="7Yd-6h-PJx"/>
+                    <constraint firstAttribute="trailing" secondItem="zwt-ZV-wvU" secondAttribute="trailing" id="7c8-uU-lEQ"/>
+                    <constraint firstItem="6hp-Fd-KMA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="FfG-6G-Ugc"/>
+                    <constraint firstAttribute="bottom" secondItem="zwt-ZV-wvU" secondAttribute="bottom" id="K5B-s3-JwJ"/>
+                    <constraint firstAttribute="trailing" secondItem="dSN-SI-Wkq" secondAttribute="trailing" constant="8" id="WPm-ia-3l8"/>
+                    <constraint firstItem="dSN-SI-Wkq" firstAttribute="leading" secondItem="6hp-Fd-KMA" secondAttribute="trailing" constant="8" id="YBs-sv-dw3"/>
+                    <constraint firstItem="zwt-ZV-wvU" firstAttribute="top" secondItem="6hp-Fd-KMA" secondAttribute="bottom" constant="8" id="iVC-Bj-x5e"/>
+                    <constraint firstItem="dSN-SI-Wkq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ltd-AQ-9sx"/>
+                    <constraint firstItem="6hp-Fd-KMA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="s7t-Zb-CoL"/>
+                    <constraint firstItem="zwt-ZV-wvU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uwQ-az-KgN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblAmount" destination="dSN-SI-Wkq" id="FSo-pk-Hpe"/>
+                <outlet property="lblCount" destination="CGB-a8-hR2" id="gHn-K8-3p7"/>
+                <outlet property="lblMinus" destination="Oky-Pf-M6q" id="bDq-2s-Tlp"/>
+                <outlet property="lblName" destination="NfJ-S1-PfH" id="URQ-Yt-8xc"/>
+                <outlet property="lblPlus" destination="jfO-P2-IOR" id="3c8-rB-5Vh"/>
+                <outlet property="lblTitle" destination="6hp-Fd-KMA" id="Tru-6Q-5tx"/>
+                <outlet property="svCorner" destination="GUj-fq-4Tb" id="I97-x9-Cpb"/>
+            </connections>
+            <point key="canvasLocation" x="270" y="-24"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="movie_seat_taken_color">
+            <color red="0.51800000667572021" green="0.5690000057220459" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

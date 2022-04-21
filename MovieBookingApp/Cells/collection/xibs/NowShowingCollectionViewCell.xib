@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NowShowingCollectionViewCell" customModule="MovieBookingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="256" height="331"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="256" height="331"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCq-gR-gD5">
+                        <rect key="frame" x="0.0" y="0.0" width="256" height="298.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezx-Xy-B5b">
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="230"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uDi-UU-NsH">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="230"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="uDi-UU-NsH" firstAttribute="leading" secondItem="ezx-Xy-B5b" secondAttribute="leading" id="6WJ-EW-z3I"/>
+                                    <constraint firstAttribute="bottom" secondItem="uDi-UU-NsH" secondAttribute="bottom" id="6sc-8L-W2l"/>
+                                    <constraint firstItem="uDi-UU-NsH" firstAttribute="top" secondItem="ezx-Xy-B5b" secondAttribute="top" id="EhU-ET-5uZ"/>
+                                    <constraint firstAttribute="height" constant="230" id="MRD-2L-Jr9"/>
+                                    <constraint firstAttribute="trailing" secondItem="uDi-UU-NsH" secondAttribute="trailing" id="sQ2-rs-170"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Spider-Man: Into the Spider-Verse" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2l2-cS-RDP">
+                                <rect key="frame" x="0.0" y="238" width="256" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family/Sci-fi ‧ 1h 56m" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="EPj-Zu-gkm">
+                                <rect key="frame" x="0.0" y="265.5" width="256" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="movie_seat_taken_color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EPj-Zu-gkm" firstAttribute="leading" secondItem="PCq-gR-gD5" secondAttribute="leading" id="6Pm-KX-hGP"/>
+                            <constraint firstItem="2l2-cS-RDP" firstAttribute="leading" secondItem="PCq-gR-gD5" secondAttribute="leading" id="LYV-Pm-F4s"/>
+                            <constraint firstAttribute="trailing" secondItem="EPj-Zu-gkm" secondAttribute="trailing" id="RkU-gw-RSH"/>
+                            <constraint firstItem="2l2-cS-RDP" firstAttribute="top" secondItem="ezx-Xy-B5b" secondAttribute="bottom" constant="8" id="cKp-MK-Z8q"/>
+                            <constraint firstAttribute="bottom" secondItem="EPj-Zu-gkm" secondAttribute="bottom" constant="16" id="eD9-Ol-xSo"/>
+                            <constraint firstAttribute="trailing" secondItem="ezx-Xy-B5b" secondAttribute="trailing" id="lZQ-8R-xVn"/>
+                            <constraint firstItem="ezx-Xy-B5b" firstAttribute="leading" secondItem="PCq-gR-gD5" secondAttribute="leading" id="sam-p4-x7G"/>
+                            <constraint firstItem="EPj-Zu-gkm" firstAttribute="top" secondItem="2l2-cS-RDP" secondAttribute="bottom" constant="8" id="szX-Re-uKe"/>
+                            <constraint firstItem="ezx-Xy-B5b" firstAttribute="top" secondItem="PCq-gR-gD5" secondAttribute="top" id="tVc-AU-RVy"/>
+                            <constraint firstAttribute="trailing" secondItem="2l2-cS-RDP" secondAttribute="trailing" id="tzw-JT-DGY"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="PCq-gR-gD5" secondAttribute="trailing" id="Adq-x7-iSL"/>
+                <constraint firstItem="PCq-gR-gD5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="YJe-8D-f6U"/>
+                <constraint firstItem="PCq-gR-gD5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="r90-Kz-8wR"/>
+            </constraints>
+            <size key="customSize" width="256" height="331"/>
+            <connections>
+                <outlet property="img" destination="uDi-UU-NsH" id="MPv-BI-VGF"/>
+                <outlet property="lblGenre" destination="EPj-Zu-gkm" id="gtC-iI-6Sw"/>
+                <outlet property="lblName" destination="2l2-cS-RDP" id="Ye2-tj-QLq"/>
+                <outlet property="viewForAll" destination="PCq-gR-gD5" id="grg-Sm-0tI"/>
+                <outlet property="viewForShadow" destination="ezx-Xy-B5b" id="PKU-sy-Kld"/>
+            </connections>
+            <point key="canvasLocation" x="306" y="-17"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="movie_seat_taken_color">
+            <color red="0.51800000667572021" green="0.5690000057220459" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

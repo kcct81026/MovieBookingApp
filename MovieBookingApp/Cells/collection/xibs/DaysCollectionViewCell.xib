@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DaysCollectionViewCell" customModule="MovieBookingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="155" height="89"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="155" height="89"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGk-rB-joG">
+                        <rect key="frame" x="0.0" y="0.0" width="155" height="89"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="We" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Js8-G8-5Y2">
+                                <rect key="frame" x="8" y="8" width="139" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6G-RB-Irb">
+                                <rect key="frame" x="0.0" y="35.5" width="155" height="45.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="X6G-RB-Irb" secondAttribute="trailing" id="OC3-MY-AMg"/>
+                            <constraint firstAttribute="bottom" secondItem="X6G-RB-Irb" secondAttribute="bottom" constant="8" id="V4f-eL-PCU"/>
+                            <constraint firstItem="Js8-G8-5Y2" firstAttribute="top" secondItem="vGk-rB-joG" secondAttribute="top" constant="8" id="fjF-fU-qt7"/>
+                            <constraint firstItem="X6G-RB-Irb" firstAttribute="top" secondItem="Js8-G8-5Y2" secondAttribute="bottom" constant="8" id="rVl-0U-bnX"/>
+                            <constraint firstAttribute="trailing" secondItem="Js8-G8-5Y2" secondAttribute="trailing" constant="8" id="vml-5H-C4l"/>
+                            <constraint firstItem="Js8-G8-5Y2" firstAttribute="leading" secondItem="vGk-rB-joG" secondAttribute="leading" constant="8" id="wTq-ON-jt0"/>
+                            <constraint firstItem="X6G-RB-Irb" firstAttribute="leading" secondItem="vGk-rB-joG" secondAttribute="leading" id="xux-vI-8ux"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vGk-rB-joG" secondAttribute="trailing" id="6vo-NC-bvm"/>
+                <constraint firstItem="vGk-rB-joG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="AmP-nf-mHr"/>
+                <constraint firstItem="vGk-rB-joG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dEu-JG-5Bf"/>
+                <constraint firstAttribute="bottom" secondItem="vGk-rB-joG" secondAttribute="bottom" id="mcX-Uz-Sz5"/>
+            </constraints>
+            <size key="customSize" width="155" height="89"/>
+            <connections>
+                <outlet property="lblDate" destination="X6G-RB-Irb" id="RQc-7Y-wcZ"/>
+                <outlet property="lblDay" destination="Js8-G8-5Y2" id="WvL-aV-U51"/>
+                <outlet property="viewDate" destination="vGk-rB-joG" id="9J4-89-nOQ"/>
+            </connections>
+            <point key="canvasLocation" x="207.97101449275365" y="106.80803571428571"/>
+        </collectionViewCell>
+    </objects>
+</document>
