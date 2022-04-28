@@ -38,13 +38,11 @@ class MovieSeatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         setUpViews()
         setUpRegisterCells()
         setUpDataSourceAndDelegate()
         fetchCheckOut()
-
-        
+     
     }
     
     private func fetchSeating(){
@@ -55,9 +53,9 @@ class MovieSeatViewController: UIViewController {
                 
                 self.data = result
                 if let count = self.data?.count{
+                    self.rowCount = self.data?[0].count ?? 0
                     for i in 0 ..< count {
                         for j in 0 ..<  (self.data?[i].count ?? 0){
-                            self.rowCount = self.data?[i].count ?? 0
                             if let item = self.data?[i][j]{
                                 self.seatList.append(item)
                             }
@@ -68,17 +66,10 @@ class MovieSeatViewController: UIViewController {
                 self.setupCollectionHeight()
                 self.collectionViewMovieSeats.reloadData()
                 
-                //self.collectionViewMovieSeats.reloadData()
             case .failure(let error):
                 debugPrint(error)
             }
-
-
         }
-        
-        
-
-       
     }
     
     private func setupCollectionHeight(){
@@ -135,7 +126,7 @@ class MovieSeatViewController: UIViewController {
     }
     
     @objc func onTapBack(){
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func onTapComboSet(){
@@ -146,25 +137,13 @@ class MovieSeatViewController: UIViewController {
         }
         else{
 
-            checkOutModel.saveCheckOut(checkout: CheckOut(
-                cinemaDayTimeSlotId: checkOut?.cinemaDayTimeSlotId,
-                row: rowString,
-                seatNumber: ticketString,
-                bookingDate: checkOut?.bookingDate,
-                totalPrice: totalPrice,
-                movieId: checkOut?.movieId,
-                cardId: nil,
-                cinemaId: checkOut?.cinemaId,
-                snacks: nil,
-                cinemaTimeSlot: checkOut?.cinemaTimeSlot,
-                movieName: checkOut?.movieName,
-                cinemaName: checkOut?.cinemaName,
-                moviePoseter: checkOut?.moviePoseter,
-                bookingNo: "",
-                qrcode: ""
-            
-            ))
-            
+            checkOut?.row = rowString
+            checkOut?.seatNumber = ticketString
+            checkOut?.totalPrice = totalPrice
+            if let checkOut = checkOut {
+                checkOutModel.saveCheckOut(checkout: checkOut )
+
+            }
             navigateToComboSetVeiwController()
         }
         
@@ -191,36 +170,13 @@ extension MovieSeatViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(identifier: MovieSeatCollectionViewCell.identifier, indexPath: indexPath) as MovieSeatCollectionViewCell
         cell.data = seatList[indexPath.row]
-        cell.onTapItem  = { seatName in
-            self.chooseTicket.removeAll()
-            self.price.removeAll()
-            self.totalPrice = 0
-            self.ticketString = ""
-            for j in 0 ..< self.seatList.count{
-                var ms: SeatingVO = self.seatList[j]
-                if seatName == ms.seatName{
-                    if ms.isSelected{
-                        ms.changeSelected(value: false)
-                    }
-                    else{
-                        ms.changeSelected(value: true)
-                    }
-                }
-                self.seatList[j] = ms
-                
-                if self.seatList[j].isSelected == true{
-                    self.chooseTicket.append(self.seatList[j].seatName ?? "")
-                    self.price.append(self.seatList[j].price ?? 0)
-
-                }
-            }
-            self.changeUI()
-            self.collectionViewMovieSeats.reloadData()
+        cell.onTapItem  = {
+            self.checkSeating()
         }
         return cell
     }
     
-    private func changeUI(){
+    private func calculatePrice(){
         var rowList = [String]()
         for j in 0 ..< chooseTicket.count{
             let fullNameArr = chooseTicket[j].components(separatedBy: "-")
@@ -235,6 +191,24 @@ extension MovieSeatViewController: UICollectionViewDataSource{
         labelTotalTicket.text = String(chooseTicket.count)
         labelChooseSeating.text = ticketString
         btnBuyTicket.setTitle( "Buy Ticket for $\(totalPrice)", for: .normal)
+        self.collectionViewMovieSeats.reloadData()
+
+    }
+    
+    private func checkSeating(){
+        chooseTicket.removeAll()
+        price.removeAll()
+        totalPrice = 0
+        ticketString = ""
+        seatList.forEach{
+            if $0.isSelected {
+                chooseTicket.append($0.seatName ?? "")
+                price.append($0.price ?? 0)
+
+            }
+        }
+        
+        calculatePrice()
     }
     
     
@@ -246,6 +220,7 @@ extension MovieSeatViewController: UICollectionViewDelegateFlowLayout{
         let height = CGFloat(35)
         return CGSize(width: width, height: height)
     }
+    
 }
 
 

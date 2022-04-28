@@ -16,6 +16,7 @@ protocol MovieDBNetworkAgentProtocol {
     func loginWithEmail(user: UserInfo, completion : @escaping (MovieBookingResult<RegisterResponse>) -> Void)
     func getProfile(completion : @escaping (MovieBookingResult<ProfileResponse>) -> Void)
     func createCard(card: Card ,completion : @escaping (MovieBookingResult<CardResponse>) -> Void)
+    func logout(completion : @escaping (MovieBookingResult<Logout>) -> Void)
     
     //MARK: - movies
     func getUpcomingMovieList(completion: @escaping (MovieBookingResult<[MovieResult]>) -> Void)
@@ -37,41 +38,18 @@ protocol MovieDBNetworkAgentProtocol {
 
 struct MovieDBNetworkAgent : MovieDBNetworkAgentProtocol{
     
-    
-    
     static let shared = MovieDBNetworkAgent()
     
     private init(){}
+    
+    
     
     func checkOut(checkOut: CheckOut, completion: @escaping (MovieBookingResult<CheckOutResponse>) -> Void) {
         
         let headers : HTTPHeaders = [
             .authorization(bearerToken: UDM.shared.defaults.string(forKey: "token") ?? "")
         ]
-        
-        
-        var p2 = [Parameters]()
-        checkOut.snacks?.forEach{ item in
-            p2.append([
-                "id": item.id ?? 0,
-                "quantity": item.quantity ?? 0,
-            ])
-        }
-        
-        let parameters : Parameters = [
-            "cinema_day_timeslot_id": checkOut.cinemaDayTimeSlotId ?? 0,
-            "row": checkOut.row ?? "",
-            "seat_number": checkOut.seatNumber ?? "",
-            "booking_date": checkOut.bookingDate ?? "",
-            "total_price": checkOut.totalPrice ?? 0,
-            "movie_id": checkOut.movieId ?? 0,
-            "card_id": checkOut.cardId ?? 0,
-            "cinema_id": checkOut.cinemaId ?? 0,
-            "snacks" : p2
-        ]
-        
-        
-        AF.request(MBEndPoint.checkOut, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers )
+        AF.request(MBEndPoint.checkOut, method: .post, parameters: checkOut, encoder: .json, headers: headers )
             .responseDecodable(of: CheckOutResponse.self) { response in
                 switch response.result{
                 case .success(let data):
@@ -219,6 +197,19 @@ struct MovieDBNetworkAgent : MovieDBNetworkAgentProtocol{
         ]
         AF.request(MBEndPoint.register, method: .post, parameters: parameters, headers: headers )
             .responseDecodable(of: RegisterResponse.self) { response in
+                switch response.result{
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(handleError(response, error, MBCommonResponseError.self)))
+             }
+        }
+    }
+    
+    func logout(completion: @escaping (MovieBookingResult<Logout>) -> Void) {
+        let headers: HTTPHeaders = [.authorization(bearerToken: UDM.shared.defaults.string(forKey: "token") ?? "")]
+        AF.request(MBEndPoint.register, method: .post, headers: headers )
+            .responseDecodable(of: Logout.self) { response in
                 switch response.result{
                 case .success(let data):
                     completion(.success(data))

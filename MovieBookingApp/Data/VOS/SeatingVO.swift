@@ -16,12 +16,13 @@ struct SeatingPlanResponse: Codable {
 }
 
 // MARK: - Datum
-struct SeatingVO: Codable {
+class SeatingVO: Codable {
+    
+    
     let id: Int?
     let type: String?
     let seatName, symbol: String?
     let price: Int?
-    var isSelected: Bool = false
 
     enum CodingKeys: String, CodingKey {
         case id, type
@@ -29,11 +30,17 @@ struct SeatingVO: Codable {
         case symbol, price
     }
     
-    mutating func changeSelected(value: Bool){
-        self.isSelected = value
+    var isSelected: Bool = false
+    
+    init(id: Int?, type: String?, seatName: String?, symbol: String?, price: Int?, isSelected: Bool = false) {
+        self.id = id
+        self.type = type
+        self.seatName = seatName
+        self.symbol = symbol
+        self.price = price
+        self.isSelected = isSelected
     }
-    
-    
+
     func isMovieSeatAvailable() -> Bool{
         return type == SEAT_TYPE_AVAILABLE
     }

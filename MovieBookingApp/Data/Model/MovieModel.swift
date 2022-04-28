@@ -27,6 +27,7 @@ class MovieModelImpl: BaseModel, MovieModel {
         networkAgent.getMovieDetailById(id: id){ (result) in
             switch result {
             case .success(let data) :
+                
                 self.movieRespository.saveDetail( data: data)
             case .failure(let error):
                 print("\(#function) \(error)")

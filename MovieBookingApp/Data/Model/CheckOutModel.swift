@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 import SwiftUI
 protocol CheckOutModel{
-    func saveMoiveId(id: Int, movieName: String, poster: String)
+   // func saveMoiveId(id: Int, movieName: String, poster: String)
     func getCheckOut(completion: @escaping (MovieBookingResult<CheckOut>) -> Void )
     func getTimeSlotsByDay(day: String, movieId: Int, completion: @escaping (MovieBookingResult<[CinemaTimeSlot]>) -> Void)
     func getSeating(day: String, id: Int, completion: @escaping (MovieBookingResult<[[SeatingVO]]>) -> Void)
@@ -25,13 +25,13 @@ class CheckOutModelImpl: BaseModel, CheckOutModel {
     static let shared = CheckOutModelImpl()
     private let checkOutRepository : CheckOutRepository = CheckOutRepositoryImpl.shared
     
-    func saveMoiveId(id: Int, movieName:String, poster: String) {
-        checkOutRepository.saveMoiveId(id: id, movieName:movieName, poster: poster, success: {
-            print("success")
-        },fail: { text in
-            print(text)
-        })
-    }
+//    func saveMoiveId(id: Int, movieName:String, poster: String) {
+//        checkOutRepository.saveMoiveId(id: id, movieName:movieName, poster: poster, success: {
+//            print("success")
+//        },fail: { text in
+//            print(text)
+//        })
+//    }
     
     func saveCheckOut(checkout: CheckOut) {
         checkOutRepository.saveCheckOut(checkout: checkout, success: {

@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private var userModel : UserModel = UserModelImpl.shared
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -17,6 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let mainStory = UIStoryboard(name: "Main", bundle: nil)
+        var vc = UIViewController()
+        if userModel.isLogin(){
+            vc = mainStory.instantiateViewController(withIdentifier: String(describing: ViewController.self))
+        }else{
+            vc = mainStory.instantiateViewController(withIdentifier: String(describing: WelcomeViewController.self))
+        }
+        if let rootVC = window?.rootViewController as? UINavigationController{
+            rootVC.setViewControllers([vc], animated: false)
+        }
+        
         
     }
 

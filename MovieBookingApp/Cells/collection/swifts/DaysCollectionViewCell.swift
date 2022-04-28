@@ -13,7 +13,7 @@ class DaysCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblDay: UILabel!
     
-    var onTapItem: ((Int) -> Void) = {_ in}
+    //var onTapItem: ((Int) -> Void) = {_ in}
     
     var data : DateVo?=nil{
         didSet{
@@ -21,6 +21,7 @@ class DaysCollectionViewCell: UICollectionViewCell {
             if let dateVO = data{
                 lblDay.text = dateVO.day
                 lblDate.text = String(dateVO.date)
+                
                 if dateVO.isSelected{
                     lblDay.textColor = UIColor.white
                     lblDate.textColor = UIColor.white
@@ -42,20 +43,21 @@ class DaysCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        setUpViews()
     }
     
-    private func setUpViews(){
-       
-        
-        viewDate.isUserInteractionEnabled = true
-        viewDate.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapTheatre)))
-    }
-    
-    
-    @objc func onTapTheatre(){
-        onTapItem(data?.date ?? 0)
-    }
-    
+//    override var isSelected: Bool{
+//        didSet{
+//            if isSelected{
+//                lblDay.textColor = UIColor.white
+//                lblDate.textColor = UIColor.white
+//                lblDate.font = lblDate.font.withSize(24)
+//            }
+//            else{
+//                lblDay.textColor = UIColor.lightGray
+//                lblDate.textColor = UIColor.lightGray
+//                lblDate.font = lblDate.font.withSize(16)
+//            }
+//        }
+//    }
    
 }

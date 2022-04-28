@@ -12,8 +12,7 @@ class MovieSeatCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblMovieSeatTitle: UILabel!
     @IBOutlet weak var viewContainerMovieSeat: UIView!
     
-    var onTapItem: ((String) -> Void) = {_ in}
-    //var delegate: MovieSeatClick?=nil
+    var onTapItem: (() -> Void) = {}
     
     var data: SeatingVO? = nil{
         didSet{
@@ -56,49 +55,6 @@ class MovieSeatCollectionViewCell: UICollectionViewCell {
                     viewContainerMovieSeat.backgroundColor = UIColor.white
                 }
                 
-                
-                
-//                if movieSeatVO.isMovieSeatRowTitle(){
-//                    // Title
-//                    viewContainerMovieSeat.layer.cornerRadius = 0
-//                    viewContainerMovieSeat.backgroundColor = UIColor.white
-//                }
-//                else if movieSeatVO.isMovieSeatTaken(){
-//                    // Taken
-//                    viewContainerMovieSeat.clipsToBounds = true
-//                    viewContainerMovieSeat.layer.cornerRadius = 8
-//                    viewContainerMovieSeat.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//                    viewContainerMovieSeat.backgroundColor = UIColor(named: "movie_seat_taken_color") ?? UIColor.gray
-//                    lblMovieSeatTitle.text = ""
-//                }
-//                else if movieSeatVO.isMovieSeatAvailable(){
-//                    // Available
-//                    if movieSeatVO.isSelected == true{
-//                        viewContainerMovieSeat.clipsToBounds = true
-//                        viewContainerMovieSeat.layer.cornerRadius = 8
-//                        viewContainerMovieSeat.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//                        viewContainerMovieSeat.backgroundColor = UIColor(named: "primary_color") ?? UIColor.gray
-//                        lblMovieSeatTitle.textColor = UIColor.white
-//                    }
-//                    else{
-//                        viewContainerMovieSeat.clipsToBounds = true
-//                        viewContainerMovieSeat.layer.cornerRadius = 8
-//                        viewContainerMovieSeat.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//                        viewContainerMovieSeat.backgroundColor = UIColor(named: "movie_seat_available_color") ?? UIColor.lightGray
-//                        lblMovieSeatTitle.text = ""
-//                    }
-//
-//                }
-//                else{
-//                    lblMovieSeatTitle.text = ""
-//                    viewContainerMovieSeat.layer.cornerRadius = 0
-//                    viewContainerMovieSeat.backgroundColor = UIColor.white
-//                }
-//
-//
-                
-                
-                
                 if movieSeatVO.isMovieSeatAvailable(){
                     viewContainerMovieSeat.isUserInteractionEnabled = true
                 }
@@ -120,7 +76,16 @@ class MovieSeatCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func onTapSeatItem(){
-        onTapItem(data?.seatName ?? "")
+        if let data = data {
+            if data.isSelected{
+                data.isSelected = false
+            }
+            else{
+                data.isSelected = true
+            }
+            onTapItem()
+        }
+       
     }
     
       

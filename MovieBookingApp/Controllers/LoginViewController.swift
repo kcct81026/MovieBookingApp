@@ -25,6 +25,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var lblLogin: UILabel!
     @IBOutlet weak var lblForgotPassword: UILabel!
     @IBOutlet weak var viewConfirm: UIView!
+    let facebookAuth = FacebookAuth()
+    let googleAuth = GoogleAuth()
+
  
     var isLogInSelected = true
     private let userModel : UserModel = UserModelImpl.shared
@@ -70,8 +73,31 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         viewConfirm.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapMain)))
         svLogIn.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapLogin)))
         svSignIn.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapSignIn)))
+        
+        svFbSignIn.isUserInteractionEnabled = true
+        svFbSignIn.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapFbSignIn)))
+        
+        svGoogleSignIn.isUserInteractionEnabled = true
+        svGoogleSignIn.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapGoogleSignIn)))
 
 
+    }
+    
+    @objc func onTapGoogleSignIn(){
+        googleAuth.start(view:self, success: { data in
+            print(data)
+        }) { error  in
+            print(error)
+        }
+
+    }
+    
+    @objc func onTapFbSignIn(){
+        facebookAuth.start(vc: self, success: { data in
+            print(data)
+        }, failure: { error in
+            print(error.debugDescription)
+        })
     }
     
     func checkViews(){
@@ -160,7 +186,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 self.stopLoading()
                 print("data \(String(describing: data.message))")
                 if data.code == 201{
-                    print(data)
                     self.goToMain(data: data)
                 }
                 else{
@@ -183,7 +208,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             switch result{
             case .success(let data):
                 self.stopLoading()
-                print("data \(String(describing: data.code))")
                 if data.code == 200{
                     self.goToMain(data:data)
                     
@@ -201,11 +225,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     private func goToMain(data: RegisterResponse){
-        UDM.shared.defaults.setValue(data.token ?? "", forKey: "token")
-        UDM.shared.defaults.setValue(data.userinfo?.name ?? "", forKey: "name")
-        UDM.shared.defaults.setValue(data.userinfo?.phone ?? "", forKey: "phone")
-        UDM.shared.defaults.setValue(data.userinfo?.email ?? "", forKey: "email")
-        UDM.shared.defaults.setValue(data.userinfo?.profileImage ?? "", forKey: "image")
         self.navigateToMainViewController()
 
     }

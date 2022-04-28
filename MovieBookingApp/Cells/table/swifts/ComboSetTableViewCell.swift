@@ -18,8 +18,8 @@ class ComboSetTableViewCell: UITableViewCell {
     @IBOutlet weak var svCorner: UIStackView!
     
     
-    var onTapPlus: ((String) -> Void) = {_ in}
-    var onTapMinus: ((String) -> Void) = {_ in}
+    var onTapPlus: (() -> Void) = {}
+    var onTapMinus: (() -> Void) = {}
 
     
     var data : SnackVO?=nil{
@@ -59,16 +59,21 @@ class ComboSetTableViewCell: UITableViewCell {
     }
     
     @objc func onTapCountMinus(){
-        onTapMinus(data?.name ?? "")
+        if let count = data?.count{
+            if count > 0 {
+                data?.count = count - 1
+                onTapMinus()
+            }
+        }
     }
     
     @objc func onTapCountPlus(){
-        onTapPlus(data?.name ?? "")
+        if let count = data?.count{
+            data?.count = count + 1
+            onTapPlus()
+        }
     }
     
-    
-    
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

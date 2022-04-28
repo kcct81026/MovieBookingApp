@@ -27,19 +27,7 @@ class WelcomeViewController: UIViewController {
     
     
     @objc func onTapView(){
-        if UDM.shared.defaults.valueExits(forKey: "token"){
-            navigateToMainViewController()
-        }
-        else{
-            navigateToLoginVeiwController()
-
-//            print("no token")
-//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let loginPage = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-//            window?.rootViewController = loginPage
-        }
-        
-       
+        navigateToLoginVeiwController()
     }
 
 }

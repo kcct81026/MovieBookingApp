@@ -39,6 +39,10 @@ class CheckOutObject: Object{
     var bookingNo : String?
     @Persisted
     var qrcode : String?
+    @Persisted
+    var runtime: Int?
+    @Persisted
+    var type: String?
     
     
     func toCheckOut()->CheckOut{
@@ -46,46 +50,68 @@ class CheckOutObject: Object{
             $0.toSnackCheckOut()
         }
         
-        return CheckOut(cinemaDayTimeSlotId: cinemaDayTimeSlotId,  row: row, seatNumber: seatNumber, bookingDate: bookingDate, totalPrice: totalPrice, movieId: movieId, cardId: cardId, cinemaId: cinemaId, snacks: snackList, cinemaTimeSlot: cinemaTimeSlot, movieName: movieName, cinemaName: cinemaName, moviePoseter: moviePoseter, bookingNo: bookingNo, qrcode: qrcode)
+        return CheckOut(cinemaDayTimeSlotId: cinemaDayTimeSlotId,  row: row, seatNumber: seatNumber, bookingDate: bookingDate, totalPrice: totalPrice, movieId: movieId, cardId: cardId, cinemaId: cinemaId, snacks: snackList, cinemaTimeSlot: cinemaTimeSlot, movieName: movieName, cinemaName: cinemaName, moviePoseter: moviePoseter, bookingNo: bookingNo, qrcode: qrcode, runtime : runtime, type: type)
         
        
     }
     
 }
 
-struct CheckOut {
-
-    let cinemaDayTimeSlotId : Int?
-    let row : String?
-    let seatNumber: String?
-    let bookingDate: String?
-    let totalPrice : Int?
-    let movieId: Int?
-    let cardId: Int?
-    let cinemaId: Int?
-    let snacks: [SnackCheckOut]?
-    let cinemaTimeSlot: String?
-    let movieName: String?
-    let cinemaName: String?
-    let moviePoseter : String?
-    let bookingNo : String?
-    let qrcode : String?
+class CheckOut : Codable{
+   
     
-//    enum CodingKeys: String, CodingKey {
-//        case cinemaDayTimeSlotId  = "cinema_day_timeslot_id"
-//        case row
-//        case seatNumber = "seat_number"
-//        case bookingDate = "booking_date"
-//        case totalPrice = "total_price"
-//        case movieId = "movie_id"
-//        case cardId = "card_id"
-//        case cinemaId = "cinema_id"
-//        case snacks
-//        case cinemaTimeSlot
-//        case movieName
-//        case cinemaName
-//
-//    }
+    var cinemaDayTimeSlotId : Int?
+    var row : String?
+    var seatNumber: String?
+    var bookingDate: String?
+    var totalPrice : Int?
+    var movieId: Int?
+    var cardId: Int?
+    var cinemaId: Int?
+    var snacks: [SnackCheckOut]?
+    
+    enum CodingKeys: String, CodingKey {
+        case cinemaDayTimeSlotId  = "cinema_day_timeslot_id"
+        case row
+        case seatNumber = "seat_number"
+        case bookingDate = "booking_date"
+        case totalPrice = "total_price"
+        case movieId = "movie_id"
+        case cardId = "card_id"
+        case cinemaId = "cinema_id"
+        case snacks = "snacks"
+
+    }
+    
+    var cinemaTimeSlot: String?
+    var movieName: String?
+    var cinemaName: String?
+    var moviePoseter : String?
+    var bookingNo : String?
+    var qrcode : String?
+    var runtime: Int?
+    var type: String?
+    
+    init(cinemaDayTimeSlotId: Int? = nil, row: String? = nil, seatNumber: String? = nil, bookingDate: String? = nil, totalPrice: Int? = nil, movieId: Int? = nil, cardId: Int? = nil, cinemaId: Int? = nil, snacks: [SnackCheckOut]? = nil, cinemaTimeSlot: String? = nil, movieName: String? = nil, cinemaName: String? = nil, moviePoseter: String? = nil, bookingNo: String? = nil, qrcode: String? = nil, runtime: Int? = nil, type: String? = nil) {
+        self.cinemaDayTimeSlotId = cinemaDayTimeSlotId
+        self.row = row
+        self.seatNumber = seatNumber
+        self.bookingDate = bookingDate
+        self.totalPrice = totalPrice
+        self.movieId = movieId
+        self.cardId = cardId
+        self.cinemaId = cinemaId
+        self.snacks = snacks
+        self.cinemaTimeSlot = cinemaTimeSlot
+        self.movieName = movieName
+        self.cinemaName = cinemaName
+        self.moviePoseter = moviePoseter
+        self.bookingNo = bookingNo
+        self.qrcode = qrcode
+        self.runtime = runtime
+        self.type = type
+    }
+    
     
     func toCheckOutObject()-> CheckOutObject{
         let object = CheckOutObject()
@@ -109,6 +135,8 @@ struct CheckOut {
         object.bookingNo = bookingNo
         object.moviePoseter = moviePoseter
         object.qrcode = qrcode
+        object.runtime = runtime
+        object.type = type
         
         return object
         

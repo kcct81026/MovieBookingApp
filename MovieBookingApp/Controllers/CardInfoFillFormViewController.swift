@@ -88,8 +88,7 @@ class CardInfoFillFormViewController: UIViewController, UITextFieldDelegate {
             case .success(let data):
                 self.stopLoading()
                 if data.message == "Success"{
-                    self.dismiss(animated: true, completion: nil)
-                    
+                    self.navigationController?.popViewController(animated: true)
                 }
                 else{
                     self.showInfo(message: data.message ?? "")
@@ -104,7 +103,7 @@ class CardInfoFillFormViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func onTapBack(){
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 

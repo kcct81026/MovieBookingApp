@@ -26,17 +26,28 @@ class CardVO{
 
 
 // MARK: - SnackVO
-struct SnackVO: Codable {
+class SnackVO: Codable {
+    
+    
     let id: Int?
     let name, description: String?
     let price: Int?
     let image: String?
-    var count: Int = 0
 
     enum CodingKeys: String, CodingKey {
         case id, name
         case description
         case price, image
+    }
+    var count: Int = 0
+
+    init(id: Int?, name: String?, description: String?, price: Int?, image: String?, count: Int = 0) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.price = price
+        self.image = image
+        self.count = count
     }
     
     func toSnackObject()-> SnackObject{
@@ -50,8 +61,6 @@ struct SnackVO: Codable {
         return object
     }
     
-    mutating func changeCount(count: Int){
-        self.count = count
-    }
+   
     
 }

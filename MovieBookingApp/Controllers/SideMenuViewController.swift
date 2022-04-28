@@ -15,6 +15,10 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var svLogOut: UIStackView!
+    
+    private var userModel: UserModel = UserModelImpl.shared
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,18 +34,37 @@ class SideMenuViewController: UIViewController {
     
     @objc func onTapLogOut(){
         
-        UDM.shared.defaults.removeObject(forKey: "token")
-        UDM.shared.defaults.removeObject(forKey: "name")
-        UDM.shared.defaults.removeObject(forKey: "email")
-        UDM.shared.defaults.removeObject(forKey: "phone")
-        
-        let realm = try! Realm()
-        try! realm.write {
-            realm.deleteAll()
+        userModel.logout(){ [weak self] (result) in
+            guard let self = self else {return }
+            if result{
+                UDM.shared.defaults.removeObject(forKey: "token")
+                UDM.shared.defaults.removeObject(forKey: "name")
+                UDM.shared.defaults.removeObject(forKey: "email")
+                UDM.shared.defaults.removeObject(forKey: "phone")
+
+                let realm = try! Realm()
+                try! realm.write {
+                    realm.deleteAll()
+                }
+                self.navigateToLoginVeiwController()
+            }
+            else{
+                self.showAlert(message: "Something went wrong!")
+                
+            }
         }
-
-        navigateToLoginVeiwController()
-
+       
+        
+//        UDM.shared.defaults.removeObject(forKey: "token")
+//        UDM.shared.defaults.removeObject(forKey: "name")
+//        UDM.shared.defaults.removeObject(forKey: "email")
+//        UDM.shared.defaults.removeObject(forKey: "phone")
+//
+//        let realm = try! Realm()
+//        try! realm.write {
+//            realm.deleteAll()
+//        }
+        
         
     }
 

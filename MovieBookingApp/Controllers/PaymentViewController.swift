@@ -41,13 +41,20 @@ class PaymentViewController: UIViewController {
     }
     
     private func fetchProfile(){
-        userModel.getProfile{ (result) in
+        userModel.getProfile{ [weak self] (result) in
+            guard let self = self else { return }
             switch result{
             case .success(let data):
-                self.cardList = data
-                if self.currentCard == nil {
-                    self.currentCard = self.cardList.first
+                if data.isEmpty{
+                    self.navigateToCardInfoFillFormVeiwController()
                 }
+                else{
+                    self.cardList = data
+                    if self.currentCard == nil {
+                        self.currentCard = self.cardList.first
+                    }
+                }
+                
                 
                 self.collectionView.reloadData()
             case .failure(let message):
@@ -80,8 +87,6 @@ class PaymentViewController: UIViewController {
     private func setUpDataSourceAndDelegate(){
         collectionView.dataSource = self
         collectionView.delegate = self
-        //self.setupLayout()
-        //collectionView.delegate = self
     }
     
     private func setUpViews(){
@@ -106,44 +111,30 @@ class PaymentViewController: UIViewController {
             self.showInfo(message: "Please add card!")
         }else{
             self.startLoading()
-            
-            let checkout = CheckOut(
-                cinemaDayTimeSlotId: checkOut?.cinemaDayTimeSlotId,
-                row: checkOut?.row,
-                seatNumber: checkOut?.seatNumber,
-                bookingDate: checkOut?.bookingDate,
-                totalPrice: checkOut?.totalPrice,
-                movieId: checkOut?.movieId,
-                cardId: currentCard?.id,
-                cinemaId: checkOut?.cinemaId,
-                snacks: checkOut?.snacks,
-                cinemaTimeSlot: checkOut?.cinemaTimeSlot,
-                movieName: checkOut?.movieName,
-                cinemaName: checkOut?.cinemaName,
-                moviePoseter: checkOut?.moviePoseter,
-                bookingNo: "",
-                qrcode: ""
-            
-            )
-            
-            checkOutModel.sendCheckOut(checkout: checkout ){(result) in
-                switch result{
-                case .success(let data):
-                    self.stopLoading()
-                    if data.code == 200 {
-                        self.navigateToTicketVeiwController()
-                    }
-                    else{
-                        self.showInfo(message: data.message ?? "unknown error!")
-                    }
+            checkOut?.cardId = currentCard?.id
+            if let checkout = checkOut {
+                checkOutModel.saveCheckOut(checkout: checkout)
+                checkOutModel.sendCheckOut(checkout: checkout ){[weak self] (result) in
+                    guard let self = self else { return }
+                    switch result{
+                    case .success(let data):
+                        self.stopLoading()
+                        if data.code == 200 {
+                            self.navigateToTicketVeiwController()
+                        }
+                        else{
+                            self.showInfo(message: data.message ?? "unknown error!")
+                        }
 
-                case .failure(let message):
-                    self.stopLoading()
-                    debugPrint(message)
-                    //self.showAlert(message: message)
+                    case .failure(let message):
+                        self.stopLoading()
+                        debugPrint(message)
+                        //self.showAlert(message: message)
+                    }
                 }
-
             }
+            
+            
                     
         }
         
@@ -153,7 +144,7 @@ class PaymentViewController: UIViewController {
    
     
     @objc func onTapBack(){
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func setColletionViewHeight(){

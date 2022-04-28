@@ -24,6 +24,11 @@ struct RegisterResponse: Codable{
     }
 }
 
+struct Logout: Codable{
+    let code: Int?
+    let message: String?
+}
+
 struct ProfileResponse: Codable {
     let code: Int?
     let message: String?

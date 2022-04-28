@@ -25,9 +25,7 @@ class ViewController: UIViewController, MovieItemClickDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     
-        
         registerForCells()
         setUpSourceAndDelegates()
         setUpViews()

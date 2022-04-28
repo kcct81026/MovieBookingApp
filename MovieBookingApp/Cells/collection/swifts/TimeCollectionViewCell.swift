@@ -12,21 +12,13 @@ class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lbl: UILabel!
     @IBOutlet weak var viewContainerTime: UIView!
     
-    var onTapItem: ((String) -> Void) = {_ in}
     
-    var data : TheatreVO?=nil{
+    var data : Timeslot?=nil{
         didSet{
             
-            if let theatre = data{
-                lbl.text = theatre.type
-                if theatre.isSelected{
-                    lbl.textColor = UIColor.white
-                    viewContainerTime.backgroundColor =  UIColor(named: "primary_color") ?? UIColor.white
-                }
-                else{
-                    lbl.textColor = UIColor.black
-                    viewContainerTime.backgroundColor =  UIColor.white
-                }
+            if let item = data{
+                lbl.text = item.startTime
+                
                 
             }
         
@@ -47,15 +39,19 @@ class TimeCollectionViewCell: UICollectionViewCell {
         viewContainerTime.layer.borderWidth = 1
         viewContainerTime.layer.cornerRadius = 6
         
-        viewContainerTime.isUserInteractionEnabled = true
-        viewContainerTime.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTapTheatre)))
     }
     
-    
-    @objc func onTapTheatre(){
-        onTapItem(data?.type ?? "")
+    override var isSelected: Bool{
+        didSet{
+            if isSelected{
+                lbl.textColor = UIColor.white
+                viewContainerTime.backgroundColor =  UIColor(named: "primary_color") ?? UIColor.white
+            }
+            else{
+                lbl.textColor = UIColor.black
+                viewContainerTime.backgroundColor =  UIColor.white
+            }
+        }
     }
-    
-   
 
 }

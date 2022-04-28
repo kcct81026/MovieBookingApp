@@ -61,7 +61,9 @@ class TheatreVO{
 }
 
 let theatreList = [
-    TheatreVO(cinemaId: 0, id: 0, type: "2D", isSelected: true),
-    TheatreVO(cinemaId: 0, id: 0, type: "3D", isSelected: false),
-    TheatreVO(cinemaId: 0, id: 0, type: "IMAX", isSelected: false)
+    
+    Timeslot(cinemaDayTimeslotID: 0, startTime: "2D"),
+    Timeslot(cinemaDayTimeslotID: 0, startTime: "3D"),
+    Timeslot(cinemaDayTimeslotID: 0, startTime: "IMAX"),
+
 ]

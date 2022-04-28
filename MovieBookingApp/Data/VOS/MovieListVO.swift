@@ -45,7 +45,7 @@ class DateVo{
     var date: Int
     var day: String
     var dayOfSearch: String
-    var isSelected: Bool
+    var isSelected: Bool = false
    
     init(date: Int, day: String, dayOfSearch: String, isSelected: Bool) {
         self.date = date

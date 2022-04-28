@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 protocol CheckOutRepository{
-    func saveMoiveId(id: Int, movieName: String, poster: String,success: @escaping () -> Void, fail: @escaping (String) -> Void)
+//    func saveMoiveId(id: Int, movieName: String, poster: String,success: @escaping () -> Void, fail: @escaping (String) -> Void)
     func saveCheckOut(checkout: CheckOut, success: @escaping () -> Void, fail: @escaping (String) -> Void)
     func saveCinemaList(data: [CinemaVO])
     func saveSeating(data: [SeatingVO])
@@ -264,22 +264,22 @@ class CheckOutRepositoryImpl: BaseRepository, CheckOutRepository{
         
     }
     
-    func saveMoiveId(id: Int, movieName: String, poster: String, success: @escaping () -> Void, fail: @escaping (String) -> Void) {
-        deleteAllCheckOutData()
-        do{
-            let object = CheckOutObject()
-            try realmDB.write {
-                object.movieId = id
-                object.movieName = movieName
-                object.moviePoseter = poster
-                realmDB.add(object, update: .modified)
-            }
-            success()
-        }catch{
-            debugPrint(error.localizedDescription)
-        }
-        
-    }
+//    func saveMoiveId(id: Int, movieName: String, poster: String, success: @escaping () -> Void, fail: @escaping (String) -> Void) {
+//        deleteAllCheckOutData()
+//        do{
+//            let object = CheckOutObject()
+//            try realmDB.write {
+//                object.movieId = id
+//                object.movieName = movieName
+//                object.moviePoseter = poster
+//                realmDB.add(object, update: .modified)
+//            }
+//            success()
+//        }catch{
+//            debugPrint(error.localizedDescription)
+//        }
+//        
+//    }
     
     private func deleteAllCheckOutData(){
         let data = realmDB.objects(CheckOutObject.self)

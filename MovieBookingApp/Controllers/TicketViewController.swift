@@ -9,6 +9,7 @@ import UIKit
 
 class TicketViewController: UIViewController {
 
+    @IBOutlet weak var lblRuntime: UILabel!
     @IBOutlet weak var imgQrCode: UIImageView!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblSeatNumber: UILabel!
@@ -77,6 +78,7 @@ class TicketViewController: UIViewController {
         lblRow.text = checkOut?.row
         lblSeatNumber.text = checkOut?.seatNumber
         lblPrice.text = "$\(checkOut?.totalPrice ?? 0)"
+        lblRuntime.text = "\(checkOut?.runtime ?? 0) mins - \(checkOut?.type ?? "IMAX")"
         
         if let _ = checkOut?.moviePoseter{
             let profilePath =  "\(AppConstant.baseImageUrl)/\(checkOut?.moviePoseter ?? "")"
@@ -89,7 +91,11 @@ class TicketViewController: UIViewController {
     }
     
     @objc func onTapClose(){
-       navigateToMainViewController()
+       //navigateToMainViewController()
+        guard let vc = UIStoryboard.mainStoryBoard().instantiateViewController(identifier: ViewController.identifer) as? ViewController else {return}
+        self.dismiss(animated:false)
+        let rootVC = self.view.window?.rootViewController as? UINavigationController
+        rootVC?.setViewControllers([vc], animated: false)
     }
     
    

@@ -25,8 +25,7 @@ class DetailController: UIViewController {
     
     
     var id: Int = 0
-    var movieName: String = ""
-    var poster: String = ""
+   
     private let movieModel : MovieModel = MovieModelImpl.shared
     private let checkOutModel : CheckOutModel = CheckOutModelImpl.shared
     private var casts: [Cast]?
@@ -55,7 +54,8 @@ class DetailController: UIViewController {
                 self.genreList = resultData.genres
                 self.collectionViewGenres.reloadData()
                 self.castCollectionView.reloadData()
-                self.bindData(data: resultData)
+                //self.bindData(data: resultData)
+                self.movie = resultData
                 self.stopLoading()
 
             case .failure(let message):
@@ -64,13 +64,30 @@ class DetailController: UIViewController {
             }
         }
     }
+    
+    var movie : MovieDetailVO?=nil{
+        didSet{
+            if let data = movie{
+                lableTitle.text = data.originalTitle
+                labelSummary.text = data.overview
+                labelShowTime.text = "\(String(describing: data.runtime ?? 0))"
+                if let _ = data.posterPath{
+                    let profilePath =  "\(AppConstant.baseImageUrl)/\(data.posterPath ?? "")"
+                    imgPoster.sd_setImage(with: URL(string: profilePath))
+                }
+                svRating.rating = Int((data.rating ?? 0) * 0.5)
+               
+            }
+          
+        }
+    }
+    
+    
 
     private func bindData(data: MovieDetailVO){
-        movieName = data.originalTitle ?? ""
         lableTitle.text = data.originalTitle
         labelSummary.text = data.overview
         labelShowTime.text = "\(String(describing: data.runtime ?? 0))"
-        poster = data.posterPath ?? ""
         if let _ = data.posterPath{
             let profilePath =  "\(AppConstant.baseImageUrl)/\(data.posterPath ?? "")"
             imgPoster.sd_setImage(with: URL(string: profilePath))
@@ -98,11 +115,17 @@ class DetailController: UIViewController {
     }
     
     @objc func onTapBack(){
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func onTapMovieTime(){
-        checkOutModel.saveMoiveId(id: id, movieName: movieName, poster: poster )
+        //checkOutModel.saveMoiveId(id: id, movieName: movieName, poster: poster )
+        let checkOut = CheckOut()
+        checkOut.movieId = id
+        checkOut.movieName = movie?.originalTitle
+        checkOut.moviePoseter = movie?.posterPath
+        checkOut.runtime = movie?.runtime
+        checkOutModel.saveCheckOut(checkout: checkOut)
         navigateToMovieTimeViewController()
     }
     

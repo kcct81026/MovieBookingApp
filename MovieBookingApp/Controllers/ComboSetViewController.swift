@@ -75,7 +75,7 @@ class ComboSetViewController: UIViewController {
             switch result{
             case .success(let result):
                 self.checkOut = result
-                self.setupUI()
+                self.checkTotalPrice()
             case .failure(let error):
                 debugPrint(error)
             }
@@ -85,12 +85,26 @@ class ComboSetViewController: UIViewController {
         
     }
     
-    private func setupUI(){
+    private func checkTotalPrice(){
         let comboPrice = priceList.reduce(0, +)
         totalPrice = (checkOut?.totalPrice ?? 0) + comboPrice
     
-        lableTotal.text = "Sub total: \(totalPrice) $" 
+        lableTotal.text = "Sub total: \(totalPrice) $"
         btnPay.setTitle("Pay for : \(totalPrice)", for: .normal)
+    }
+    
+    private func calculatePrice(){
+        priceList.removeAll()
+        orderSnackList.removeAll()
+        snackList.forEach{
+            if $0.count > 0 {
+                self.priceList.append(($0.price ?? 0 ) * $0.count)
+                self.orderSnackList.append($0)
+
+            }
+        }
+        checkTotalPrice()
+        tableViewComboSets.reloadData()
     }
     
     
@@ -125,8 +139,9 @@ class ComboSetViewController: UIViewController {
     
    
     
+    
     @objc func onTapBack(){
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
   
@@ -136,24 +151,11 @@ class ComboSetViewController: UIViewController {
             orderSnackList.forEach{
                 snackOrders.append(SnackCheckOut(id: $0.id, quantity: $0.count))
             }
-            
-            checkOutModel.saveCheckOut(checkout: CheckOut(
-                cinemaDayTimeSlotId: checkOut?.cinemaDayTimeSlotId,
-                row: checkOut?.row,
-                seatNumber: checkOut?.seatNumber,
-                bookingDate: checkOut?.bookingDate,
-                totalPrice: totalPrice,
-                movieId: checkOut?.movieId,
-                cardId: nil,
-                cinemaId: checkOut?.cinemaId,
-                snacks: snackOrders,
-                cinemaTimeSlot: checkOut?.cinemaTimeSlot,
-                movieName: checkOut?.movieName,
-                cinemaName: checkOut?.cinemaName,
-                moviePoseter: checkOut?.moviePoseter,
-                bookingNo: "",
-                qrcode: ""
-            ))
+            checkOut?.totalPrice = totalPrice
+            checkOut?.snacks = snackOrders
+            if let checkOut = checkOut {
+                checkOutModel.saveCheckOut(checkout: checkOut)
+            }
             navigateToPaymentVeiwController()
         }
         else{
@@ -184,74 +186,21 @@ extension ComboSetViewController: UITableViewDataSource, UITableViewDelegate{
         if tableView == tableViewComboSets{
             let cell = tableView.dequeueCell(identifier: ComboSetTableViewCell.identifier, indexPath: indexPath) as ComboSetTableViewCell
             cell.data = snackList[indexPath.row] // data binding
-            cell.onTapPlus = { name in
-                
-                self.priceList.removeAll()
-                self.orderSnackList.removeAll()
-                
-                
-                for j in 0 ..< self.snackList.count{
-                    var snackVO: SnackVO = self.snackList[j]
-                    if name == snackVO.name{
-                        snackVO.changeCount(count: snackVO.count + 1)
-                    }
-                    self.snackList[j] = snackVO
-                    
-                    if self.snackList[j].count > 0 {
-                        self.priceList.append((self.snackList[j].price ?? 0 ) * self.snackList[j].count)
-                        self.orderSnackList.append(self.snackList[j])
-
-                    }
-                }
-                self.setupUI()
-                self.tableViewComboSets.reloadData()
+            cell.onTapPlus = {
+                self.calculatePrice()
             }
             
-            cell.onTapMinus = { name in
-                self.priceList.removeAll()
-                self.orderSnackList.removeAll()
-                
-                for j in 0 ..< self.snackList.count{
-                    var snackVO: SnackVO = self.snackList[j]
-                    if name == snackVO.name{
-                        if snackVO.count > 0{
-                            snackVO.changeCount(count: snackVO.count - 1)
-
-                        }
-                    }
-                    self.snackList[j] = snackVO
-                    if self.snackList[j].count > 0 {
-                        self.priceList.append((self.snackList[j].price ?? 0 ) * self.snackList[j].count)
-                        self.orderSnackList.append(self.snackList[j])
-
-
-                    }
-                }
-                self.setupUI()
-                self.tableViewComboSets.reloadData()
+            cell.onTapMinus = {
+                self.calculatePrice()
             }
-            
-            
             return cell
                
         }else{
             let cell = tableView.dequeueCell(identifier: CardTableViewCell.identifier, indexPath: indexPath) as CardTableViewCell
             cell.data = paymentList[indexPath.row]
-
-            //cell.delegate = self
             return cell
         }
-        
-    
-        
        
     }
-    
- 
-    
-  
-    
-    
-    
 }
 

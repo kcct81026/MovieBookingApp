@@ -23,6 +23,7 @@ enum MBEndPoint : URLConvertible{
     case profile
     case createCard
     case checkOut
+    case logout
 
     
     private var baseURL : String{
@@ -74,6 +75,8 @@ enum MBEndPoint : URLConvertible{
             return "/api/v1/card"
         case .checkOut:
             return "/api/v1/checkout"
+        case .logout:
+            return "/api/v1/logout"
         }
     }
     
