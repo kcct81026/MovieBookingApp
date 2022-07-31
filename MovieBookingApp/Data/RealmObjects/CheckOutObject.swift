@@ -142,6 +142,10 @@ class CheckOut : Codable{
         
     }
     
+    static func dummy() -> CheckOut{
+        return CheckOut(cinemaDayTimeSlotId: 1, row: "R", seatNumber: "R9", bookingDate: "22/4/22", totalPrice: 50, movieId: 414906, cardId: 0, cinemaId: 2, snacks: nil, cinemaTimeSlot: "", movieName: "Movie Name", cinemaName: "", moviePoseter: "", bookingNo: "", qrcode: "", runtime: 0, type: "")
+    }
+    
     
 }
 

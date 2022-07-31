@@ -12,26 +12,19 @@ protocol CheckOutModel{
    // func saveMoiveId(id: Int, movieName: String, poster: String)
     func getCheckOut(completion: @escaping (MovieBookingResult<CheckOut>) -> Void )
     func getTimeSlotsByDay(day: String, movieId: Int, completion: @escaping (MovieBookingResult<[CinemaTimeSlot]>) -> Void)
-    func getSeating(day: String, id: Int, completion: @escaping (MovieBookingResult<[[SeatingVO]]>) -> Void)
+    func getSeating(day: String, id: Int, completion: @escaping (MovieBookingResult<[SeatingVO]>) -> Void)
     func getCinemaList(completion: @escaping (MovieBookingResult<[CinemaVO]>) -> Void)
     func saveCheckOut(checkout: CheckOut)
     func sendCheckOut(checkout: CheckOut, completion: @escaping (MovieBookingResult<CheckOutResponse>) -> Void)
+    
 }
 
 class CheckOutModelImpl: BaseModel, CheckOutModel {
     
-    
-
-    static let shared = CheckOutModelImpl()
+    static let shared: CheckOutModel = CheckOutModelImpl()
     private let checkOutRepository : CheckOutRepository = CheckOutRepositoryImpl.shared
     
-//    func saveMoiveId(id: Int, movieName:String, poster: String) {
-//        checkOutRepository.saveMoiveId(id: id, movieName:movieName, poster: poster, success: {
-//            print("success")
-//        },fail: { text in
-//            print(text)
-//        })
-//    }
+
     
     func saveCheckOut(checkout: CheckOut) {
         checkOutRepository.saveCheckOut(checkout: checkout, success: {
@@ -77,19 +70,22 @@ class CheckOutModelImpl: BaseModel, CheckOutModel {
         }
     }
     
-    func getSeating(day: String, id: Int, completion: @escaping (MovieBookingResult<[[SeatingVO]]>) -> Void) {
+    func getSeating(day: String, id: Int, completion: @escaping (MovieBookingResult<[SeatingVO]>) -> Void) {
         networkAgent.getSeating(day: day, id: id){ (result) in
             switch result {
             case .success(let data) :
-                completion(.success(data))
+                //completion(.success(data))
+                self.checkOutRepository.saveSeating(data: SeatingVOHelper.changingToSingleSeatingVOArray(data: data) )
+               
+                
                 //self.checkOutRepository.saveSeating(data: data)
             case .failure(let error):
                 print("\(#function) \(error)")
             }
             
-//            self.checkOutRepository.getSeatingList{
-//                completion(.success($0))
-//            }
+            self.checkOutRepository.getSeatingList{
+                completion(.success($0))
+            }
         }
     }
     

@@ -69,6 +69,24 @@ struct UserInfo: Codable{
     }
 }
 
+struct UserCredentialVO : Codable{
+    let name : String?
+    let email : String?
+    let phone : String?
+    let password : String?
+    let gid : String?
+    let fid : String?
+    
+    enum CodingKeys: String, CodingKey{
+        case name
+        case email
+        case phone
+        case password
+        case gid = "google-access-token"
+        case fid = "facebook-access-token"
+    }
+}
+
 // MARK: - CardResponse
 struct CardResponse: Codable {
     let code: Int?

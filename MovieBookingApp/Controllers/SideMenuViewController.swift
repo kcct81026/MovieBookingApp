@@ -33,41 +33,21 @@ class SideMenuViewController: UIViewController {
     }
     
     @objc func onTapLogOut(){
-        
         userModel.logout(){ [weak self] (result) in
             guard let self = self else {return }
             if result{
-                UDM.shared.defaults.removeObject(forKey: "token")
-                UDM.shared.defaults.removeObject(forKey: "name")
-                UDM.shared.defaults.removeObject(forKey: "email")
-                UDM.shared.defaults.removeObject(forKey: "phone")
-
-                let realm = try! Realm()
-                try! realm.write {
-                    realm.deleteAll()
-                }
-                self.navigateToLoginVeiwController()
+                let rootVC = self.view.window?.rootViewController as! UINavigationController
+                
+                let vc = UIStoryboard.mainStoryBoard().instantiateViewController(withIdentifier: String(describing: WelcomeViewController.self))
+                self.dismiss(animated: false)
+                rootVC.setViewControllers([vc], animated: false)
             }
             else{
                 self.showAlert(message: "Something went wrong!")
                 
             }
         }
-       
-        
-//        UDM.shared.defaults.removeObject(forKey: "token")
-//        UDM.shared.defaults.removeObject(forKey: "name")
-//        UDM.shared.defaults.removeObject(forKey: "email")
-//        UDM.shared.defaults.removeObject(forKey: "phone")
-//
-//        let realm = try! Realm()
-//        try! realm.write {
-//            realm.deleteAll()
-//        }
-        
         
     }
-
-  
 
 }

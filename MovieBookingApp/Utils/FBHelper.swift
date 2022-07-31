@@ -84,3 +84,7 @@ class FacebookAuth {
 public struct FacebookAuthProfileResponse {
     public let id, token, name, email, profilePic : String
 }
+
+/*
+ id: "5338701476191937", token: "EAAKjdlznqZBYBADgZBWrZAOTGC3H8pmiboVw49Sa5SwN1EgSozlsMmZBj3xku9ugCCIS9VQZARUyWWDEABcxLzOA1gNZAIKbdejQs3Y7P53k8tIZAsYJkYlWfuLtd60lj791ZBVvR7NLyL1nZBGCbw94FIiazv0KXFWCyJ6ZBFgcKDFJ0siLZAOZCjzRl2zKcWeomhzI5vUg7IB9A1NZBqbn3Ip5BzYP35G41NtrwHEHbW7rroHoRHPof8LVs", name: "Khin Cho", email: "ms.khincho90@gmail.com", profilePic: "https://graph.facebook.com/5338701476191937/picture?type=large&return_ssl_resources=1")
+ */

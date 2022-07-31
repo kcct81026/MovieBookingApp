@@ -21,6 +21,12 @@
 			</array>
 		</dict>
 	</array>
+    <key>FacebookAppID</key>
+    <string>742678713576422</string>
+    <key>FacebookClientToken</key>
+    <string>a18257b0cdc7fa3267fbd561062b1019</string>
+    <key>FacebookDisplayName</key>
+    <string>MovieBookingApp</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

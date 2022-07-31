@@ -12,8 +12,10 @@ import Alamofire
 protocol MovieDBNetworkAgentProtocol {
     
     //MARK: - register
-    func register(user: UserInfo, completion : @escaping (MovieBookingResult<RegisterResponse>) -> Void)
+    func register(user: UserCredentialVO, completion : @escaping (MovieBookingResult<RegisterResponse>) -> Void)
     func loginWithEmail(user: UserInfo, completion : @escaping (MovieBookingResult<RegisterResponse>) -> Void)
+    func loginWithFbId(id: String, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void)
+    func loginWithGgId(id: String, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void)
     func getProfile(completion : @escaping (MovieBookingResult<ProfileResponse>) -> Void)
     func createCard(card: Card ,completion : @escaping (MovieBookingResult<CardResponse>) -> Void)
     func logout(completion : @escaping (MovieBookingResult<Logout>) -> Void)
@@ -34,9 +36,12 @@ protocol MovieDBNetworkAgentProtocol {
     
     func checkOut(checkOut: CheckOut ,completion : @escaping (MovieBookingResult<CheckOutResponse>) -> Void)
     
+    
 }
 
 struct MovieDBNetworkAgent : MovieDBNetworkAgentProtocol{
+   
+    
     
     static let shared = MovieDBNetworkAgent()
     
@@ -184,7 +189,7 @@ struct MovieDBNetworkAgent : MovieDBNetworkAgentProtocol{
     
 
     //MARK: - register
-    func register(user: UserInfo, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void) {
+    func register(user: UserCredentialVO, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void) {
 
         let headers : HTTPHeaders = [
             "Content-Type": "application/x-www-form-urlencoded"
@@ -193,7 +198,9 @@ struct MovieDBNetworkAgent : MovieDBNetworkAgentProtocol{
             "name": user.name ?? "",
             "email": user.email ?? "",
             "phone": user.phone ?? "",
-            "password": user.profileImage ?? ""
+            "password": user.password ?? "",
+            "google-access-token" : user.gid ?? "",
+            "facebook-access-token": user.gid ?? ""
         ]
         AF.request(MBEndPoint.register, method: .post, parameters: parameters, headers: headers )
             .responseDecodable(of: RegisterResponse.self) { response in
@@ -208,7 +215,7 @@ struct MovieDBNetworkAgent : MovieDBNetworkAgentProtocol{
     
     func logout(completion: @escaping (MovieBookingResult<Logout>) -> Void) {
         let headers: HTTPHeaders = [.authorization(bearerToken: UDM.shared.defaults.string(forKey: "token") ?? "")]
-        AF.request(MBEndPoint.register, method: .post, headers: headers )
+        AF.request(MBEndPoint.logout, method: .post, headers: headers )
             .responseDecodable(of: Logout.self) { response in
                 switch response.result{
                 case .success(let data):
@@ -275,6 +282,41 @@ struct MovieDBNetworkAgent : MovieDBNetworkAgentProtocol{
         }
     }
     
+    func loginWithFbId(id: String, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void) {
+        let headers : HTTPHeaders = [
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
+        let parameters : Parameters = [
+            "access-token": id
+        ]
+        AF.request(MBEndPoint.fbLogIn, method: .post, parameters: parameters, headers: headers )
+            .responseDecodable(of: RegisterResponse.self) { response in
+                switch response.result{
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(handleError(response, error, MBCommonResponseError.self)))
+             }
+        }
+    }
+    
+    func loginWithGgId(id: String, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void) {
+        let headers : HTTPHeaders = [
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
+        let parameters : Parameters = [
+            "access-token": id
+        ]
+        AF.request(MBEndPoint.fbLogIn, method: .post, parameters: parameters, headers: headers )
+            .responseDecodable(of: RegisterResponse.self) { response in
+                switch response.result{
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(handleError(response, error, MBCommonResponseError.self)))
+             }
+        }
+    }
     
     fileprivate func handleError < T, E: MBErrorModel>(
         _ response: DataResponse<T, AFError>,

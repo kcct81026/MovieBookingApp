@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import RxSwift
 
 protocol CheckOutRepository{
 //    func saveMoiveId(id: Int, movieName: String, poster: String,success: @escaping () -> Void, fail: @escaping (String) -> Void)
@@ -19,13 +20,34 @@ protocol CheckOutRepository{
     func getCinemaList( completion: @escaping ([CinemaVO]) -> Void)
     func getSeatingList( completion: @escaping ([SeatingVO]) -> Void)
     func getCheckOut(completion: @escaping (MovieBookingResult<CheckOut>) -> Void )
+    
+    func getCheckOutObseravable() -> Observable<CheckOut>
 }
 
 class CheckOutRepositoryImpl: BaseRepository, CheckOutRepository{
+  
+    
     
     static let shared : CheckOutRepository = CheckOutRepositoryImpl()
     
     private override init() { }
+    
+    func getCheckOutObseravable() -> Observable<CheckOut>{
+  
+        let realmObjects = realmDB.objects(CheckOutObject.self)
+           
+        if let firstItem = realmObjects.first{ 
+            return Observable.create { (observer) -> Disposable in
+               
+                observer.onNext(firstItem.toCheckOut())
+                return Disposables.create()
+            }
+        }
+        return Observable.empty()
+        
+      
+        
+    }
     
     func getCinemaList( completion: @escaping ([CinemaVO]) -> Void) {
         

@@ -1,0 +1,1506 @@
+{
+    "code": 200,
+    "message": "Success",
+    "data": [
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "A",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "space",
+                "seat_name": "",
+                "symbol": "A",
+                "price": 0
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "A-2",
+                "symbol": "A",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "A-3",
+                "symbol": "A",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "A-4",
+                "symbol": "A",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "A-5",
+                "symbol": "A",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "A-6",
+                "symbol": "A",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "A-7",
+                "symbol": "A",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "A-8",
+                "symbol": "A",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "A-9",
+                "symbol": "A",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "A-10",
+                "symbol": "A",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "A-11",
+                "symbol": "A",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "space",
+                "seat_name": "",
+                "symbol": "A",
+                "price": 0
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "A",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "B",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "B-1",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "B-2",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "B-3",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "B-4",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "B-5",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "B-6",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "B-7",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "B-8",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "B-9",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "B-10",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "B-11",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "B-12",
+                "symbol": "B",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "B",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "C",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "C-1",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "C-2",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "C-3",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "C-4",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "C-5",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "C-6",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "C-7",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "C-8",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "C-9",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "C-10",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "C-11",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "C-12",
+                "symbol": "C",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "C",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "D",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "D-1",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "D-2",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "D-3",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "D-4",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "D-5",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "D-6",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "D-7",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "D-8",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "D-9",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "D-10",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "D-11",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "D-12",
+                "symbol": "D",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "D",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "E",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "E-1",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "E-2",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "E-3",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "E-4",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "E-5",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "E-6",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "E-7",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "E-8",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "E-9",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "E-10",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "E-11",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "E-12",
+                "symbol": "E",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "E",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "F",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "F-1",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "F-2",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "F-3",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "F-4",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "F-5",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "F-6",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "F-7",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "F-8",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "F-9",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "F-10",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "F-11",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "F-12",
+                "symbol": "F",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "F",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "G",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "G-1",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "G-2",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "G-3",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "G-4",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "G-5",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "G-6",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "G-7",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "G-8",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "G-9",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "G-10",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "G-11",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "G-12",
+                "symbol": "G",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "G",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "H",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "H-1",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "H-2",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "H-3",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "H-4",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "H-5",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "H-6",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "H-7",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "H-8",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "H-9",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "H-10",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "H-11",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "H-12",
+                "symbol": "H",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "H",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "I",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "I-1",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "I-2",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "I-3",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "I-4",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "I-5",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "I-6",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "I-7",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "I-8",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "I-9",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "I-10",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "I-11",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "I-12",
+                "symbol": "I",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "I",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "J",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "J-1",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "J-2",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "J-3",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "J-4",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "J-5",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "J-6",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "J-7",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "J-8",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "J-9",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "J-10",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "J-11",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "J-12",
+                "symbol": "J",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "J",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "K",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "K-1",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "K-2",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "K-3",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "K-4",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "K-5",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "K-6",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "K-7",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "K-8",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "K-9",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "K-10",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "K-11",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "K-12",
+                "symbol": "K",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "K",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "L",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "L-1",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "L-2",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "L-3",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "L-4",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "L-5",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "L-6",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "L-7",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "L-8",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "L-9",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "L-10",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "L-11",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "L-12",
+                "symbol": "L",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "L",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "M",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "M-1",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "M-2",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "M-3",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "M-4",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "M-5",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "M-6",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "M-7",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "M-8",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "M-9",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "M-10",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "M-11",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "M-12",
+                "symbol": "M",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "M",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "N",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "N-1",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "N-2",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "N-3",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "N-4",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "N-5",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "N-6",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "N-7",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "N-8",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "N-9",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "N-10",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "N-11",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "N-12",
+                "symbol": "N",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "N",
+                "price": 0
+            }
+        ],
+        [
+            {
+                "id": 1,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "O",
+                "price": 0
+            },
+            {
+                "id": 2,
+                "type": "available",
+                "seat_name": "O-1",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 3,
+                "type": "available",
+                "seat_name": "O-2",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 4,
+                "type": "available",
+                "seat_name": "O-3",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 5,
+                "type": "available",
+                "seat_name": "O-4",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 6,
+                "type": "available",
+                "seat_name": "O-5",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 7,
+                "type": "available",
+                "seat_name": "O-6",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 8,
+                "type": "available",
+                "seat_name": "O-7",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 9,
+                "type": "available",
+                "seat_name": "O-8",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 10,
+                "type": "available",
+                "seat_name": "O-9",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 11,
+                "type": "available",
+                "seat_name": "O-10",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "type": "available",
+                "seat_name": "O-11",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 13,
+                "type": "available",
+                "seat_name": "O-12",
+                "symbol": "O",
+                "price": 5
+            },
+            {
+                "id": 14,
+                "type": "text",
+                "seat_name": "",
+                "symbol": "O",
+                "price": 0
+            }
+        ]
+    ]
+}

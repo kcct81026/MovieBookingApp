@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
 
@@ -27,6 +28,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var viewConfirm: UIView!
     let facebookAuth = FacebookAuth()
     let googleAuth = GoogleAuth()
+    private var fbId = ""
+    private var ggId = ""
 
  
     var isLogInSelected = true
@@ -84,21 +87,55 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     @objc func onTapGoogleSignIn(){
-        googleAuth.start(view:self, success: { data in
-            print(data)
+        
+        googleAuth.start(view:self, success: { [weak self] (result) in
+            guard let self = self else { return }
+            if self.isLogInSelected {
+                self.loginWithGgId(id: result.id)
+            }
+            else{
+                do{
+                    try self.validateUserInputs()
+                    self.ggId = result.id
+                    self.userRegister()
+                }catch{
+                    self.showAlert(message: error.localizedDescription)
+                }
+            }
+            
         }) { error  in
             print(error)
         }
 
+
     }
     
     @objc func onTapFbSignIn(){
-        facebookAuth.start(vc: self, success: { data in
-            print(data)
+        
+        facebookAuth.start(vc: self, success: {  [weak self] (result) in
+            guard let self = self else { return }
+            if self.isLogInSelected{
+                self.loginWithFbId(id: result.id)
+            }
+            else {
+                do{
+                    self.fbId = result.id
+                    self.userRegister()
+                    try self.validateUserInputs()
+                    
+                }catch{
+                    self.showAlert(message: error.localizedDescription)
+                }
+            }
+            
         }, failure: { error in
             print(error.debugDescription)
         })
+ 
+        
     }
+    
+    
     
     func checkViews(){
         if isLogInSelected {
@@ -132,59 +169,48 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     @objc func onTapMain(){
-        //navigateToMainViewController()
-        checkFields()
+        do {
+            try validateUserInputs()
+            
+            if isLogInSelected {
+                userLoginWithEmail()
+            }
+            else {
+                userRegister()
+            }
+            
+        } catch {
+            showAlert(message: error.localizedDescription)
+        }
+    }
+    
+    private func validateUserInputs() throws{
+        if ( self.textFieldEmail.text == nil || !EmailValidation.isValidEmail(textFieldEmail.text!)){
+            throw "Check your email!"
+        }
+        else if (self.textFieldPassword.text == nil || self.textFieldPassword.text!.isEmpty){
+            throw "Check your password!"
+        }
+        
+        if (!isLogInSelected){
+            if (self.textFieldName.text == nil || self.textFieldName.text!.isEmpty){
+                throw "Enter your name!"
+            }
+            else if (self.textFieldPhone.text == nil || self.textFieldPhone.text!.isEmpty){
+                throw "Enter your phone number!"
+            }
+        }
     }
     
 
-    private func checkFields(){
-        if isLogInSelected{
-            if(self.textFieldEmail.text?.isEmpty ?? true){
-               self.showAlert(message: "email missing")
-            }
-            else if(self.textFieldPassword.text?.isEmpty ?? true){
-                self.showAlert(message: "password missing")
-            }
-            else{
-                if let email = self.textFieldEmail.text{
-                    if email.isValidEmail{
-                        userLoginWithEmail()
-                    }
-                    else{
-                        self.showAlert(message: "Check your email!")
-                    }
-                }
-            }
-        }
-        else{
-            if(self.textFieldName.text?.isEmpty ?? true){
-                self.showAlert(message: "name missing")
-            }
-            else if(self.textFieldEmail.text?.isEmpty ?? true){
-                self.showAlert(message: "email missing")
-            }
-            else if(self.textFieldPassword.text?.isEmpty ?? true){
-                self.showAlert(message: "password missing")
-            }
-            else if(self.textFieldPhone.text?.isEmpty ?? true){
-                self.showAlert(message: "phone missing")
-            }
-            else{
-                userRegister()
-            }
-        }
-    }
     
     private func userRegister() {
         self.startLoading()
-        
-        userModel.register(user: UserInfo(id: 0, name: textFieldName.text, email: textFieldEmail.text, phone: textFieldPhone.text, totalExpense: 0, profileImage: textFieldPassword.text)){ [weak self] (result) in
+        userModel.register(user: UserCredentialVO(name: textFieldName.text, email: textFieldEmail.text, phone: textFieldPhone.text, password: textFieldPassword.text, gid: ggId, fid: fbId)){ [weak self] (result) in
             guard let self = self else { return }
             switch result{
             case .success(let data):
-                print("data \(String(describing: data.code))")
                 self.stopLoading()
-                print("data \(String(describing: data.message))")
                 if data.code == 201{
                     self.goToMain(data: data)
                 }
@@ -204,6 +230,54 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         self.startLoading()
         
         userModel.loginWithEmail(user: UserInfo(id: 0, name: "", email: textFieldEmail.text, phone: "", totalExpense: 0, profileImage: textFieldPassword.text)){ [weak self] (result) in
+            guard let self = self else { return }
+            switch result{
+            case .success(let data):
+                self.stopLoading()
+                if data.code == 200{
+                    self.goToMain(data:data)
+                    
+                }
+                else{
+                    self.showInfo(message: data.message ?? "")
+                }
+
+            case .failure(let message):
+                self.stopLoading()
+                self.showAlert(message: message)
+            }
+            
+        }
+    }
+    
+    private func loginWithFbId(id: String) {
+        self.startLoading()
+        
+        userModel.loginWithFbId(id: id){ [weak self] (result) in
+            guard let self = self else { return }
+            switch result{
+            case .success(let data):
+                self.stopLoading()
+                if data.code == 200{
+                    self.goToMain(data:data)
+                    
+                }
+                else{
+                    self.showInfo(message: data.message ?? "")
+                }
+
+            case .failure(let message):
+                self.stopLoading()
+                self.showAlert(message: message)
+            }
+            
+        }
+    }
+    
+    private func loginWithGgId(id: String) {
+        self.startLoading()
+        
+        userModel.loginWithGgId(id: id){ [weak self] (result) in
             guard let self = self else { return }
             switch result{
             case .success(let data):

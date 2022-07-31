@@ -4,7 +4,6 @@
 //
 //  Created by KC on 16/02/2022.
 //
-
 import UIKit
 
 class ViewController: UIViewController, MovieItemClickDelegate{
@@ -139,5 +138,3 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
         return CGSize(width: collectionView.frame.width / 2.5, height: CGFloat(300))
     }
 }
-
-

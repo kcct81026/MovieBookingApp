@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import RealmSwift
 protocol UserModel{
     
-    func register(user: UserInfo, completion : @escaping (MovieBookingResult<RegisterResponse>) -> Void)
+    func register(user: UserCredentialVO, completion : @escaping (MovieBookingResult<RegisterResponse>) -> Void)
     func loginWithEmail(user: UserInfo, completion : @escaping (MovieBookingResult<RegisterResponse>) -> Void)
+    func loginWithFbId(id: String , completion : @escaping (MovieBookingResult<RegisterResponse>) -> Void)
+    func loginWithGgId(id: String, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void)
     func isLogin()->Bool
     func addCard(card: Card, completion : @escaping (MovieBookingResult<CardResponse>) -> Void)
     func saveProfile()-> Void
@@ -28,7 +31,7 @@ class UserModelImpl: BaseModel, UserModel {
         return UDM.shared.defaults.valueExits(forKey: "token")
     }
     
-    func register(user: UserInfo, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void) {
+    func register(user: UserCredentialVO, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void) {
         networkAgent.register(user: user) {  (result) in
             switch result {
             case .success(let data):
@@ -92,7 +95,15 @@ class UserModelImpl: BaseModel, UserModel {
             switch result {
             case .success(let data):
                 if data.code == 200 {
-                       print("data \(data)")
+                    UDM.shared.defaults.removeObject(forKey: "token")
+                    UDM.shared.defaults.removeObject(forKey: "name")
+                    UDM.shared.defaults.removeObject(forKey: "email")
+                    UDM.shared.defaults.removeObject(forKey: "phone")
+
+                    let realm = try! Realm()
+                    try! realm.write {
+                        realm.deleteAll()
+                    }
                     completion(true)
                     
                 }
@@ -108,6 +119,42 @@ class UserModelImpl: BaseModel, UserModel {
     
     func loginWithEmail(user: UserInfo, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void) {
         networkAgent.loginWithEmail(user: user) {  (result) in
+            switch result {
+            case .success(let data):
+                if data.code == 200 {
+                    UDM.shared.defaults.setValue(data.token ?? "", forKey: "token")
+                    UDM.shared.defaults.setValue(data.userinfo?.name ?? "", forKey: "name")
+                    UDM.shared.defaults.setValue(data.userinfo?.phone ?? "", forKey: "phone")
+                    UDM.shared.defaults.setValue(data.userinfo?.email ?? "", forKey: "email")
+                    UDM.shared.defaults.setValue(data.userinfo?.profileImage ?? "", forKey: "image")
+                }
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func loginWithFbId(id: String, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void) {
+        networkAgent.loginWithFbId(id: id) {  (result) in
+            switch result {
+            case .success(let data):
+                if data.code == 200 {
+                    UDM.shared.defaults.setValue(data.token ?? "", forKey: "token")
+                    UDM.shared.defaults.setValue(data.userinfo?.name ?? "", forKey: "name")
+                    UDM.shared.defaults.setValue(data.userinfo?.phone ?? "", forKey: "phone")
+                    UDM.shared.defaults.setValue(data.userinfo?.email ?? "", forKey: "email")
+                    UDM.shared.defaults.setValue(data.userinfo?.profileImage ?? "", forKey: "image")
+                }
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func loginWithGgId(id: String, completion: @escaping (MovieBookingResult<RegisterResponse>) -> Void) {
+        networkAgent.loginWithGgId(id: id) {  (result) in
             switch result {
             case .success(let data):
                 if data.code == 200 {

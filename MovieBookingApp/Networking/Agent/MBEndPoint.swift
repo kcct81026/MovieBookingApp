@@ -9,7 +9,9 @@ import Foundation
 import Alamofire
 
 
-enum MBEndPoint : URLConvertible{
+enum MBEndPoint : URLConvertible, URLRequestConvertible{
+   
+    
     case register
     case emailLogin
     case getUpComing
@@ -24,6 +26,8 @@ enum MBEndPoint : URLConvertible{
     case createCard
     case checkOut
     case logout
+    case fbLogIn
+    case ggLogIn
 
     
     private var baseURL : String{
@@ -32,6 +36,12 @@ enum MBEndPoint : URLConvertible{
 
     func asURL() throws -> URL {
         return url
+    }
+    
+    func asURLRequest() throws -> URLRequest {
+
+        var request = URLRequest(url: try asURL())
+        return request
     }
 
     var url: URL{
@@ -77,6 +87,10 @@ enum MBEndPoint : URLConvertible{
             return "/api/v1/checkout"
         case .logout:
             return "/api/v1/logout"
+        case .fbLogIn:
+            return "/api/v1/facebook-login"
+        case .ggLogIn:
+            return "/api/v1/google-login"
         }
     }
     

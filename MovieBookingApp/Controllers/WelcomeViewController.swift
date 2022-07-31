@@ -22,7 +22,8 @@ class WelcomeViewController: UIViewController {
         let gestureRecoginizer = UITapGestureRecognizer(target: self, action: #selector(onTapView))
         btnGetStarted.addGestureRecognizer(gestureRecoginizer)
         
-        
+        UDM.shared.defaults.setValue(14, forKey: "row_count")
+
     }
     
     
